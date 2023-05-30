@@ -18,7 +18,7 @@
         <i class='bx bx-menu' id="menu-icon"></i>
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="#about" target="_blank">About</a>
+            <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#portfolio">Portfolio </a>
             <a href="#contact">Contact</a>
@@ -162,18 +162,18 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!
         </span></h2>
-        <form action="#" onsubmit="sendEmail();reset();return false;">
+        <form action="#">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Full Name" id="name">
+                <input type="email" placeholder="Email Address" id="email">
             </div>
 
             <div class="input-box">
-                <input type="number" placeholder="Phone Number">
-                <input type="text" placeholder="Email subject">
+                <input type="number" placeholder="Phone Number" id="number">
+                <input type="text" placeholder="Email subject" id="subj">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Please Enter your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Please Enter your Message" id="message"></textarea>
+            <input type="submit" value="Send Message" class="btn" id="btn">
         </form>
     </section>
     <!--Design of footer-->
@@ -193,19 +193,26 @@
     <script src="portfollio.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
-        function sendEmail(){
+        var btn=document.getElementById('btn');
+        btn.addEventListener('click',function(e){
+            e.preventDefault();
+            var name=document.getElementById('name').value;
+            var email=document.getElementById('email').value;
+            var number=document.getElementById('number').value;
+            
+            var body='name:'+name+'<br/> email:'+email+'<br/> number:'+number;
+
+
             Email.send({
-            Host : "smtp.gmail.com",
-            Username : "21r21a0589@mlrinstitutions.ac.in",
-            Password : "Ravali@123",
-            To : 'cseug557@gmail.com',
-            From : document.getElementById("email").value,
-            Subject : "This is the subject",
-            Body : "And this is the body"
-            }).then(
-            message => alert(message)
-            );
-        }
+    SecureToken : "4b2c8e4d-fa4c-4ddc-b898-9a8fdbf28e83",
+    To : '21r21a0589@mlrinstitutions.ac.in',
+    From : "madhukarredd92@gmail.com",
+    Subject : "This is the subject",
+    Body :body
+}).then(
+  message => alert(message)
+);
+        })
     </script>
 </body>
 </html>
