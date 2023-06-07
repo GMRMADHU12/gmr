@@ -172,7 +172,7 @@
                 <input type="number" placeholder="Phone Number" id="number">
                 <input type="text" placeholder="Email subject" id="subj">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Please Enter your Message" id="message"></textarea>
+            <textarea name="" id="mess" cols="30" rows="10" placeholder="Please Enter your Message" id="message"></textarea>
             <input type="submit" value="Send Message" class="btn" id="btn">
         </form>
     </section>
@@ -199,8 +199,12 @@
             var name=document.getElementById('name').value;
             var email=document.getElementById('email').value;
             var number=document.getElementById('number').value;
+            var subj=document.getElementById('subj').value;
+            var mess=document.getElementById('mess').value;
+
             
-            var body='name:'+name+'<br/> email:'+email+'<br/> number:'+number;
+            var body='name:'+name+'<br/> email:'+email+'<br/> number:'+number+
+            '<br/> Subject:'+subj+'<br/> Message:'+mess;
 
 
             Email.send({
